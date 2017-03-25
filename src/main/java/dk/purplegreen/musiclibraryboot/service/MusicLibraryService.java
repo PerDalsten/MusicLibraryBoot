@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import dk.purplegreen.musiclibraryboot.domain.Album;
 import dk.purplegreen.musiclibraryboot.domain.Artist;
 import dk.purplegreen.musiclibraryboot.domain.Song;
-import dk.purplegreen.musiclibraryboot.repositories.AlbumRepository;
-import dk.purplegreen.musiclibraryboot.repositories.ArtistRepository;
+import dk.purplegreen.musiclibraryboot.repository.AlbumRepository;
+import dk.purplegreen.musiclibraryboot.repository.ArtistRepository;
 
 @Service
 public class MusicLibraryService {

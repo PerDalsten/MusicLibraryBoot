@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import dk.purplegreen.musiclibraryboot.domain.Album;
 import dk.purplegreen.musiclibraryboot.domain.Artist;
+import dk.purplegreen.musiclibraryboot.repository.AlbumRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

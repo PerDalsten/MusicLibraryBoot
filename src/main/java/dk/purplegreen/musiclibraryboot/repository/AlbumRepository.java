@@ -1,4 +1,4 @@
-package dk.purplegreen.musiclibraryboot.repositories;
+package dk.purplegreen.musiclibraryboot.repository;
 
 import java.util.List;
 

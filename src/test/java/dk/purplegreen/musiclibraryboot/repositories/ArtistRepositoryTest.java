@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import dk.purplegreen.musiclibraryboot.domain.Artist;
+import dk.purplegreen.musiclibraryboot.repository.ArtistRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

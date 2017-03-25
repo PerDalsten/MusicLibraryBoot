@@ -12,19 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ALBUM")
-/*
-@NamedQueries({ @NamedQuery(name = "findAllAlbums", query = "SELECT a FROM Album a"),
-		@NamedQuery(name = "findByArtist", query = "SELECT a FROM Album a WHERE a.artist = :artist"),
-		@NamedQuery(name = "findByTitle", query = "SELECT a FROM Album a WHERE a.title = :title") })
-*/		
+
 public class Album {
 
 	@Id
@@ -96,7 +90,7 @@ public class Album {
 		}
 		getSongs().add(song);
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder("<");
