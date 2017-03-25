@@ -1,4 +1,4 @@
-package dk.purplegreen.musiclibraryboot.repositories;
+package dk.purplegreen.musiclibraryboot.repository;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -14,7 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import dk.purplegreen.musiclibraryboot.domain.Album;
 import dk.purplegreen.musiclibraryboot.domain.Artist;
-import dk.purplegreen.musiclibraryboot.repository.AlbumRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -56,22 +55,10 @@ public class AlbumRepositoryTest {
 	}
 
 	@Test
-	public void testFindByArtistName() {
+	public void testFind() {
 
-		List<Album> albums = repository.findByArtistNameIgnoreCaseContaining("oyal");
-
-		assertEquals("Wrong number of albums", 1, albums.size());
-		assertEquals("Wrong album", "Paradox", albums.get(0).getTitle());
-	}
-
-	@Test
-	public void testFindByArtistNameAndTitle() {
-
-		List<Album> albums = repository.findByArtistNameIgnoreCaseContainingAndTitleIgnoreCaseContaining("eatle",
-				"road");
-
+		List<Album> albums = repository.findAll(new AlbumRepository.AlbumSpecification("eatle", "road", 1969));
 		assertEquals("Wrong number of albums", 1, albums.size());
 		assertEquals("Wrong album", "Abbey Road", albums.get(0).getTitle());
 	}
-
 }

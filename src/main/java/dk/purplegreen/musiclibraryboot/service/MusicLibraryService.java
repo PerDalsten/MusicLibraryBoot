@@ -1,6 +1,5 @@
 package dk.purplegreen.musiclibraryboot.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -119,31 +118,15 @@ public class MusicLibraryService {
 		if (log.isDebugEnabled()) {
 			log.debug("findAlbums called: artist=" + artist + ", title=" + title + ", year=" + year);
 		}
-		
+
 		List<Album> result;
-		
-		//TODO Use specification?
-		//TODO Make album search sort on album title?
 
 		if (artist == null && title == null & year == null) {
 			result = albumRepository.findAllByOrderByTitleAsc();
-		} else if (artist == null && title == null & year != null) {
-			result = albumRepository.findByYear(year);
-		} else if (artist == null && title != null & year == null) {
-			result = albumRepository.findByTitleIgnoreCaseContaining(title);
-		} else if (artist == null && title != null & year != null) {
-			result = albumRepository.findByTitleIgnoreCaseContainingAndYear(title, year);
-		} else if (artist != null && title == null & year == null) {
-			result = albumRepository.findByArtistNameIgnoreCaseContaining(artist);
-		} else if (artist != null && title == null & year != null) {
-			result = albumRepository.findByArtistNameIgnoreCaseContainingAndYear(artist, year);
-		} else if (artist != null && title != null & year == null) {
-			result = albumRepository.findByArtistNameIgnoreCaseContainingAndTitleIgnoreCaseContaining(artist, title);
 		} else {
-			result = albumRepository.findByArtistNameIgnoreCaseContainingAndTitleIgnoreCaseContainingAndYear(artist,
-					title, year);
+			result = albumRepository.findAll(new AlbumRepository.AlbumSpecification(artist, title, year));
 		}
-				
+
 		return result;
 	}
 
@@ -166,11 +149,7 @@ public class MusicLibraryService {
 			log.debug("getAlbums() called");
 		}
 
-		List<Album> result = new ArrayList<>();
-
-		albumRepository.findAll().forEach(album -> result.add(album));
-
-		return result;
+		return albumRepository.findAllByOrderByTitleAsc();
 	}
 
 	@Transactional

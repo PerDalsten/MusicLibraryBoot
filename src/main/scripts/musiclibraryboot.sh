@@ -2,8 +2,8 @@
 
 JAVA=$JAVA_HOME/bin/java
 
-VERSION=1.0-SNAPSHOT
-PROFILE=derby
-LOGDIR=mylogs
+VERSION=1.2-SNAPSHOT
+DATABASE=derby
+LOGDIR=logs
 
-$JAVA -jar -Dspring.profiles.active=$PROFILE -Dlogdir=$LOGDIR MusicLibraryBoot-$VERSION.jar
+$JAVA -jar -Dspring.profiles.active=$DATABASE -Dlogdir=$LOGDIR MusicLibraryBoot-$VERSION.jar
