@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:derby://localhost:1527/musiclibrarydb
+    driver-class-name: org.apache.derby.jdbc.ClientDriver
+    password: musiclibrary
+    username: musiclibrary
+  jpa:
+    hibernate:
+      ddl-auto: none

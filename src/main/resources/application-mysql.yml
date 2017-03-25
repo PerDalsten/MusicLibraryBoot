@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/musiclibrarydb?serverTimezone=US/Eastern
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: musiclibrary
+    username: musiclibrary
+  jpa:
+    hibernate:
+      ddl-auto: none
