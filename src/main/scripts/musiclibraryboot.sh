@@ -2,7 +2,7 @@
 
 JAVA=$JAVA_HOME/bin/java
 
-VERSION=1.2-SNAPSHOT
+VERSION=1.2
 DATABASE=derby
 LOGDIR=logs
 
