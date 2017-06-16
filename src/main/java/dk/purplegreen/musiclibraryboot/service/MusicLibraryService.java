@@ -121,7 +121,7 @@ public class MusicLibraryService {
 
 		List<Album> result;
 
-		if (artist == null && title == null & year == null) {
+		if (artist == null && title == null && year == null) {
 			result = albumRepository.findAllByOrderByTitleAsc();
 		} else {
 			result = albumRepository.findAll(new AlbumRepository.AlbumSpecification(artist, title, year));
