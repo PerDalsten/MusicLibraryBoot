@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import dk.purplegreen.musiclibraryboot.domain.Album;
 import dk.purplegreen.musiclibraryboot.domain.Artist;
-import dk.purplegreen.musiclibraryboot.domain.Song;
 import dk.purplegreen.musiclibraryboot.repository.AlbumRepository;
 import dk.purplegreen.musiclibraryboot.repository.ArtistRepository;
 
@@ -195,8 +194,6 @@ public class MusicLibraryService {
 	}
 
 	private void attachSongs(Album album) {
-		for (Song song : album.getSongs()) {
-			song.setAlbum(album);
-		}
+		album.getSongs().stream().forEach(song -> song.setAlbum(album));			
 	}
 }
