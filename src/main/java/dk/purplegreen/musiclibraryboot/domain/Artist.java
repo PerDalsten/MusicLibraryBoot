@@ -8,13 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ARTIST")
+@Table(name = "artist")
 
 public class Artist {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name = "ARTIST_NAME", nullable = false)
+	@Column(name = "artist_name", nullable = false)
 	private String name;
 
 	public Artist() {

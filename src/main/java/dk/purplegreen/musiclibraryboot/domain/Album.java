@@ -17,7 +17,7 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ALBUM")
+@Table(name = "album")
 
 public class Album {
 
@@ -25,11 +25,11 @@ public class Album {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name = "ARTIST_ID", nullable = false)
+	@JoinColumn(name = "artist_id", nullable = false)
 	private Artist artist;
-	@Column(name = "ALBUM_TITLE", nullable = false)
+	@Column(name = "album_title", nullable = false)
 	private String title;
-	@Column(name = "ALBUM_YEAR", nullable = false)
+	@Column(name = "album_year", nullable = false)
 	private Integer year;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "album", orphanRemoval = true, fetch = FetchType.EAGER)
 	@OrderBy("disc, track")
