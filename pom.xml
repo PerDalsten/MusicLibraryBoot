@@ -9,6 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>MusicLibraryBoot</name>
+	<url>http://www.purplegreen.dk/musiclibraryboot</url>
 	<description>MusicLibrary Spring Boot</description>
 
 	<parent>
