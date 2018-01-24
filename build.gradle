@@ -1,0 +1,48 @@
+buildscript {
+	ext {
+                springBootVersion = '1.5.9.RELEASE'
+        }
+        repositories {
+                mavenCentral()
+	}
+        dependencies {
+                classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+group = 'dk.purplegreen.musiclibrary'
+version = '1.2.3-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+        mavenCentral()
+}
+
+ext {
+        springCloudVersion = 'Camden.SR7'
+        derbyVersion = '10.13.1.1'
+}
+
+dependencies {
+	compile('org.springframework.cloud:spring-cloud-starter-config')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	
+	runtime "org.apache.derby:derbyclient:${derbyVersion}"
+	runtime "mysql:mysql-connector-java"
+	
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	
+	testRuntime "org.apache.derby:derby:${derbyVersion}"
+}
+
+dependencyManagement {
+	imports {
+                mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
