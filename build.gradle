@@ -14,7 +14,7 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 
 group = 'dk.purplegreen.musiclibrary'
-version = '1.2.3-SNAPSHOT'
+version = '1.2.3'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
