@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import dk.purplegreen.musiclibraryboot.domain.Album;
-import dk.purplegreen.musiclibraryboot.service.InvalidAlbumException;
 import dk.purplegreen.musiclibraryboot.service.MusicLibraryService;
 import dk.purplegreen.musiclibraryboot.service.MusicLibraryServiceException;
 
@@ -35,11 +34,7 @@ public class Albums {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Album> getAlbum(@PathVariable("id") Integer id) throws MusicLibraryServiceException {
-
-		if (log.isDebugEnabled()) {
-			log.debug("getAlbum called with id: " + id);
-		}
-
+		log.debug("getAlbum called with id: {}", id);
 		return new ResponseEntity<>(service.getAlbum(id), HttpStatus.OK);
 	}
 
@@ -47,9 +42,8 @@ public class Albums {
 	public ResponseEntity<List<Album>> getAlbums(@RequestParam(value = "artist", required = false) String artist,
 			@RequestParam(value = "title", required = false) String title,
 			@RequestParam(value = "year", required = false) Integer year) {
-		if (log.isDebugEnabled()) {
-			log.debug("getAlbums called: artist=" + artist + ", title=" + title + ", year=" + year);
-		}
+
+		log.debug("getAlbums called: artist={}, title={}, year={}", artist, title, year);
 
 		if (artist == null && title == null && year == null) {
 			return new ResponseEntity<>(service.getAlbums(), HttpStatus.OK);
@@ -62,9 +56,7 @@ public class Albums {
 	public ResponseEntity<Album> createAlbum(@RequestBody Album album, UriComponentsBuilder uriBuilder)
 			throws MusicLibraryServiceException {
 
-		if (log.isDebugEnabled()) {
-			log.debug("createAlbum called with album: " + (album == null ? "null" : album.getTitle()));
-		}
+		log.debug("createAlbum called with input: {}", album);
 
 		album = service.createAlbum(album);
 
@@ -78,13 +70,7 @@ public class Albums {
 	public ResponseEntity<Album> updateAlbum(@PathVariable("id") Integer id, @RequestBody Album album)
 			throws MusicLibraryServiceException {
 
-		if (log.isDebugEnabled()) {
-			log.debug("updateAlbum called with album: " + (album == null ? "null" : id + "-" + album.getTitle()));
-		}
-
-		if (album == null) {
-			throw new InvalidAlbumException("Album cannot be null");
-		}
+		log.debug("updateAlbum called for id: {} with input: {}", id, album);
 
 		album.setId(id);
 		album = service.updateAlbum(album);
@@ -95,9 +81,7 @@ public class Albums {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteAlbum(@PathVariable("id") Integer id) throws MusicLibraryServiceException {
 
-		if (log.isDebugEnabled()) {
-			log.debug("deleteAlbum called with id: " + id);
-		}
+		log.debug("deleteAlbum called for id: {}", id);
 
 		service.deleteAlbum(new Album(id));
 		return new ResponseEntity<>(HttpStatus.OK);

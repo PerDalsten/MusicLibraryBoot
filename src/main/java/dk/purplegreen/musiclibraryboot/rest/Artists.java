@@ -19,7 +19,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import dk.purplegreen.musiclibraryboot.domain.Album;
 import dk.purplegreen.musiclibraryboot.domain.Artist;
-import dk.purplegreen.musiclibraryboot.service.InvalidArtistException;
 import dk.purplegreen.musiclibraryboot.service.MusicLibraryService;
 import dk.purplegreen.musiclibraryboot.service.MusicLibraryServiceException;
 
@@ -36,18 +35,16 @@ public class Artists {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Artist> getArtist(@PathVariable("id") Integer id) throws MusicLibraryServiceException {
 
-		if (log.isDebugEnabled()) {
-			log.debug("getArtist called with id: " + id);
-		}
+		log.debug("getArtist called with id: {}", id);
 
 		return new ResponseEntity<>(service.getArtist(id), HttpStatus.OK);
 	}
 
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Artist>> getArtists() {
-		if (log.isDebugEnabled()) {
-			log.debug("getArtists called");
-		}
+
+		log.debug("getArtists called");
+
 		return new ResponseEntity<>(service.getArtists(), HttpStatus.OK);
 	}
 
@@ -55,9 +52,8 @@ public class Artists {
 	public ResponseEntity<Artist> createArtist(@RequestBody Artist artist, UriComponentsBuilder uriBuilder)
 			throws MusicLibraryServiceException {
 
-		if (log.isDebugEnabled()) {
-			log.debug("createArtist called with artist: " + (artist == null ? "null" : artist.getName()));
-		}
+		log.debug("createArtist called with input: {}", artist);
+
 		artist = service.createArtist(artist);
 
 		HttpHeaders httpHeaders = new HttpHeaders();
@@ -70,13 +66,7 @@ public class Artists {
 	public ResponseEntity<Artist> updateArtist(@PathVariable("id") Integer id, @RequestBody Artist artist)
 			throws MusicLibraryServiceException {
 
-		if (log.isDebugEnabled()) {
-			log.debug("updateArtist called with artist: " + (artist == null ? "null" : id + "-" + artist.getName()));
-		}
-
-		if (artist == null) {
-			throw new InvalidArtistException("Artist cannot be null");
-		}
+		log.debug("updateArtist called for id: {} with input: {}", id, artist);	
 
 		artist.setId(id);
 		artist = service.updateArtist(artist);
@@ -87,9 +77,7 @@ public class Artists {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteArtist(@PathVariable("id") Integer id) throws MusicLibraryServiceException {
 
-		if (log.isDebugEnabled()) {
-			log.debug("deleteArtist called with id: " + id);
-		}
+		log.debug("deleteArtist called for id: {}", id);
 
 		service.deleteArtist(new Artist(id));
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -99,7 +87,7 @@ public class Artists {
 	public ResponseEntity<List<Album>> getArtistAlbums(@PathVariable("id") Integer id)
 			throws MusicLibraryServiceException {
 
-		log.debug("getArtistAlbums called with id: " + id);
+		log.debug("getArtistAlbums called with id: {}", id);
 
 		return new ResponseEntity<>(service.getAlbums(new Artist(id)), HttpStatus.OK);
 	}

@@ -12,7 +12,7 @@ public class ArtistValidator {
 			throw new InvalidArtistException("Artist is null");
 		}
 
-		if (artist.getName() == null || artist.getName().trim().length() == 0) {
+		if (artist.getName() == null || artist.getName().trim().isEmpty()) {
 			throw new InvalidArtistException("Artist name cannot be empty");
 		}
 	}

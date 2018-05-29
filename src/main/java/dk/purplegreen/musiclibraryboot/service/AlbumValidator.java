@@ -12,7 +12,7 @@ public class AlbumValidator {
 			throw new InvalidAlbumException("Album is null");
 		}
 
-		if (album.getTitle() == null || album.getTitle().trim().length() == 0) {
+		if (album.getTitle() == null || album.getTitle().trim().isEmpty()) {
 			throw new InvalidAlbumException("Album title cannot be empty");
 		}
 
