@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:hsqldb:hsql://localhost/musiclibrarydb
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    password: musiclibrary
+    username: musiclibrary
+  jpa:
+    hibernate:
+      ddl-auto: none

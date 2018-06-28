@@ -3,7 +3,7 @@ RUNNING
 
 Copy jar and src/main/scripts/musiclibraryboot.* to a directory and run by calling appropriate start script, e.g.
 
-./musiclibraryboot.sh mysql
+./musiclibraryboot.sh mysql (or derby or hsql)
 
 If using MusicLibraryConfigServer no argument is necessary as 'current' is default (assuming MusicLibraryBoot-current.yml is deployed
 to config server).
