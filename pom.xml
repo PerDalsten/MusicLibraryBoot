@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dk.purplegreen.musiclibrary</groupId>
 	<artifactId>MusicLibraryBoot</artifactId>
-	<version>1.2.4</version>
+	<version>1.2.5-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>MusicLibraryBoot</name>
@@ -15,17 +15,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.13.RELEASE</version>
+		<version>2.0.4.RELEASE</version>
 		<relativePath />
 	</parent>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
 		<derby.version>10.14.2.0</derby.version>
 		<hsql.version>2.4.1</hsql.version>
-		<spring-cloud.version>Edgware.SR3</spring-cloud.version>
+		<spring-cloud.version>Finchley.SR1</spring-cloud.version>
 	</properties>
 
 	<dependencies>

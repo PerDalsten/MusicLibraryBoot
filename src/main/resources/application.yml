@@ -1,11 +1,12 @@
 logging:
   file: ${logdir:logs}/MusicLibraryBoot.log
   level:
-    dk.purplegreen: debug
-    org.springframework.web: DEBUG
+    dk.purplegreen: DEBUG
+    org.springframework.web: ERROR
     org.hibernate: ERROR
 server:
-  context-path: /MusicLibraryBoot
+  servlet:
+    context-path: /MusicLibraryBoot
     
     
  

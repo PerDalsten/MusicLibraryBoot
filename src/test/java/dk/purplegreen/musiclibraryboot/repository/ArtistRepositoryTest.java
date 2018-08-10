@@ -33,7 +33,9 @@ public class ArtistRepositoryTest {
 
 	@Test
 	public void testFindById() {
-		Artist artist = repository.findOne(1);
+		Artist artist = repository.findById(1).orElse(null);
+
+		assertNotNull("Artist is null", artist);
 		assertEquals("Wrong artist", "The Beatles", artist.getName());
 	}
 

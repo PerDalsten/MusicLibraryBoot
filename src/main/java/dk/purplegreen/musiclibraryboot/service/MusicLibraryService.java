@@ -45,10 +45,13 @@ public class MusicLibraryService {
 	public Artist getArtist(Integer id) throws MusicLibraryServiceException {
 
 		log.debug("getArtist() called with id: {}", id);
-
+        /*
 		Artist result = artistRepository.findOne(id);
 		if (result == null)
 			throw new ArtistNotFoundException("Artist with id: " + id + " does not exist.");
+		*/
+		Artist result = artistRepository.findById(id).orElseThrow(() -> new ArtistNotFoundException("Artist with id: " + id + " does not exist."));
+
 		return result;
 	}
 
@@ -129,9 +132,13 @@ public class MusicLibraryService {
 
 		log.debug("getAlbum() called with id: {}", id);
 
+		/*
 		Album result = albumRepository.findOne(id);
 		if (result == null)
 			throw new AlbumNotFoundException("Album with id: " + id + " does not exist.");
+			*/
+		Album result = albumRepository.findById(id).orElseThrow(()->new AlbumNotFoundException("Album with id: " + id + " does not exist."));
+
 		return result;
 	}
 

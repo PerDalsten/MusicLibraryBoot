@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +30,10 @@ public class AlbumRepositoryTest {
 
 	@Test
 	public void testFindById() {
-		Album album = repository.findOne(2);
+
+
+		Album album = repository.findById(2).orElse(null);
+
 		assertNotNull("Album is null", album);
 
 		assertEquals("Wrong title", "Paradox", album.getTitle());
