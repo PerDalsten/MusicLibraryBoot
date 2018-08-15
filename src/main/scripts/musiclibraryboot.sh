@@ -2,7 +2,7 @@
 
 JAVA=$JAVA_HOME/bin/java
 
-VERSION=1.2.2
+VERSION=1.2.5
 PROFILE=current
 LOGDIR=logs
 PORT=8080

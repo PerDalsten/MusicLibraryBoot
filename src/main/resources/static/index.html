@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MusicLibrary Browser</title>
+<link rel="stylesheet" type="text/css"
+	href="styles/musiclibraryboot.css">
+<meta charset="UTF-8">	
+</head>
+<body>
+
+	<div> 
+		<label for="artist">Artist:</label><input id="artist" type="text" />
+		<label for="title">Title:</label><input id="title" type="text" /> 
+		<label for="year">Year:</label><input id="year" type="text"  maxlength="4" size="4"/>
+	     
+	</div>
+
+	<hr />
+
+    <h1>Albums</h1>
+
+    Click on album title to show/hide songs.
+
+	<div id="albums">
+		<ul id="albumList">
+		</ul>
+	</div>
+
+    <script type="text/javascript" src="scripts/musiclibraryboot.js"></script>
+
+</body>
+</html>

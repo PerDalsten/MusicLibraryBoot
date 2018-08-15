@@ -1,0 +1,15 @@
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 10px 20px 10px 20px;
+    padding: 0px;
+    background-color: #660033; 
+    color:white;
+}
+
+.showSongs {display: block;}
+.hideSongs {display: none;}
+
+ul {
+    list-style: none;
+}
