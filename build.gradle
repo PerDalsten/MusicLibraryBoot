@@ -15,7 +15,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'dk.purplegreen.musiclibrary'
-version = '1.2.5-SNAPSHOT'
+version = '1.2.5'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
