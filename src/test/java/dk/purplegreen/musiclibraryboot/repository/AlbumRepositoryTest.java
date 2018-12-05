@@ -67,4 +67,12 @@ public class AlbumRepositoryTest {
 		assertEquals("Wrong number of albums", 1, albums.size());
 		assertEquals("Wrong album", "Abbey Road", albums.get(0).getTitle());
 	}
+	
+	@Test
+	public void testFindAll() {
+
+		List<Album> albums = repository.findAllByOrderByTitleAscArtistNameAsc();
+		assertEquals("Wrong number of albums", 3, albums.size());
+		assertEquals("Wrong album", "Abbey Road", albums.get(0).getTitle());
+	}
 }

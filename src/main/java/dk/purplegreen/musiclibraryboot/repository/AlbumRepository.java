@@ -18,8 +18,8 @@ import dk.purplegreen.musiclibraryboot.domain.Artist;
 public interface AlbumRepository extends CrudRepository<Album, Integer>, JpaSpecificationExecutor<Album> {
 
 	long countByArtist(Artist artist);
-
-	List<Album> findAllByOrderByTitleAsc();
+	
+	List<Album> findAllByOrderByTitleAscArtistNameAsc();
 
 	List<Album> findByArtist(Artist artist);
 

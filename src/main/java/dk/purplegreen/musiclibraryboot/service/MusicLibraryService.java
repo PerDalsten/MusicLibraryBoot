@@ -119,7 +119,7 @@ public class MusicLibraryService {
 		List<Album> result;
 
 		if (artist == null && title == null && year == null) {
-			result = albumRepository.findAllByOrderByTitleAsc();
+			result = albumRepository.findAllByOrderByTitleAscArtistNameAsc();
 		} else {
 			result = albumRepository.findAll(new AlbumRepository.AlbumSpecification(artist, title, year));
 		}
@@ -147,7 +147,7 @@ public class MusicLibraryService {
 
 		log.debug("getAlbums() called");
 
-		return albumRepository.findAllByOrderByTitleAsc();
+		return albumRepository.findAllByOrderByTitleAscArtistNameAsc();
 	}
 
 	@Transactional
