@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-                springBootVersion = '2.0.6.RELEASE'
+                springBootVersion = '2.1.4.RELEASE'
         }
         repositories {
                 mavenCentral()
@@ -25,7 +25,7 @@ repositories {
 }
 
 ext {
-        springCloudVersion = 'Finchley.SR1'
+        springCloudVersion = 'Greenwich.SR1'
         derbyVersion = '10.14.2.0'
 }
 
@@ -36,7 +36,7 @@ dependencies {
 	
 	runtime "org.apache.derby:derbyclient:${derbyVersion}"
 	runtime "mysql:mysql-connector-java"
-	runtime 'org.hsqldb:hsqldb:2.4.1'
+	runtime 'org.hsqldb:hsqldb'
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	
