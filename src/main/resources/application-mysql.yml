@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost/musiclibrarydb
+    url: jdbc:mysql://localhost/musiclibrarydb?serverTimezone=US/Eastern
     driver-class-name: com.mysql.jdbc.Driver
     password: musiclibrary
     username: musiclibrary
