@@ -1,6 +1,6 @@
 set JAVA=%JAVA_HOME%/bin/java
 
-set VERSION=1.2.5
+set VERSION=1.2.6
 set PROFILE=current
 set LOGDIR=logs
 set PORT=8080
